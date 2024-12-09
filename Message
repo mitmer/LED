@@ -1,0 +1,23 @@
+
+
+import time
+from adafruit_matrixportal.matrix import Matrix
+from messageboard import MessageBoard
+from messageboard.fontpool import FontPool
+from messageboard.message import Message
+
+matrix = Matrix(width=192, height=32, bit_depth=5)
+messageboard = MessageBoard(matrix)
+
+fontpool = FontPool()
+fontpool.add_font("arial", "fonts/Arial-10.pcf")
+
+message = Message(fontpool.find_font("arial"), mask_color=0xFF00FF, opacity=0.8)
+
+message.add_text("BALTIMORE THE GREATEST CITY IN AMERICA", color=0xFFFF00, x_offset=2, y_offset=2)
+
+while True:
+ ]
+    messageboard.animate(message, "Scroll", "in_from_right")
+    time.sleep(1)
+    messageboard.animate(message, "Scroll", "out_to_left")
